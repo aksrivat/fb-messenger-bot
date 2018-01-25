@@ -70,7 +70,10 @@ def webhook():
                         now = datetime.datetime.now()
                         currentTime = now.strftime("%Y-%m-%d %H:%M")
                         rightNow = "{}:00".format(currentTime)
-                        send_message(sender_id, rightNow)
+                        #send_message(sender_id, rightNow)
+                        send_message(sender_id, "date time is bad")                     
+
+                        
                         
                         #symbolIndex = line.find('symbol=')
                         #symbolURL = keyURL[:symbolIndex] + hardParse + keyURL[symbolIndex:]
