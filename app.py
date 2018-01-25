@@ -1,7 +1,7 @@
 import os
 import sys
 import json
-from datetime import datetime
+import datetime
 
 import requests
 from flask import Flask, request
@@ -67,11 +67,11 @@ def webhook():
                         #send_message(sender_id, "roger that!")                     
                         #send_message(sender_id, data)
                        
-                        #now = datetime.datetime.now()
-                        #currentTime = now.strftime("%Y-%m-%d %H:%M")
-                        #rightNow = "{}:00".format(currentTime)
-                        #send_message(sender_id, rightNow)
-                        send_message(sender_id, "date time is bad")                     
+                        now = datetime.datetime.now()
+                        currentTime = now.strftime("%Y-%m-%d %H:%M")
+                        rightNow = "{}:00".format(currentTime)
+                        send_message(sender_id, rightNow)
+                        #send_message(sender_id, "date time is bad")                     
 
                         
                         
