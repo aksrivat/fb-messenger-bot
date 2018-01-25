@@ -43,11 +43,23 @@ def webhook():
                     #send_message(sender_id, "roger that!")
                     #send_message(sender_id, "bob that!")
                     
+                    apiKey = 'S1AKS2D2LNU9PY5L'
+                    noKeyURL = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=&interval=1min&apikey='
+                    apiIndex = line.find('apikey=')
+                    keyURL = noKeyURL[:apiIndex] + apiKey + noKeyURL[apiIndex:]
+                    
+                    # place the symbol after symbol= and the apikey after apikey=
+
+                    
                     #symbol = message_text.split("$")
                     if "$" in message_text:
                         send_message(sender_id, message_text)
                         hardParse = message_text[1:]
                         send_message(sender_id, hardParse)
+                        
+                        symbolIndex = line.find('symbol=')
+                        symbolURL = keyURL[:symbolIndex] + hardParse + keyURL[symbolIndex:]
+                        send_message(sender_id, symbolURL)
 
                     else:
                         send_message(sender_id, "nope")
