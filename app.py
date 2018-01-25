@@ -46,6 +46,9 @@ def webhook():
                     #symbol = message_text.split("$")
                     if "$" in message_text:
                         send_message(sender_id, message_text)
+                        hardParse = message_text[1:]
+                        send_message(sender_id, hardParse)
+
                     else:
                         send_message(sender_id, "nope")
                     
