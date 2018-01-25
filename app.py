@@ -67,7 +67,9 @@ def webhook():
                         #send_message(sender_id, "roger that!")                     
                         #send_message(sender_id, data)
                        
-                        rightNow = "{}:00".format(now.strftime("%Y-%m-%d %H:%M"))
+                        now = datetime.datetime.now()
+                        currentTime = now.strftime("%Y-%m-%d %H:%M")
+                        rightNow = "{}:00".format(currentTime)
                         send_message(sender_id, rightNow)
                         
                         #symbolIndex = line.find('symbol=')
