@@ -44,9 +44,10 @@ def webhook():
                     #send_message(sender_id, "bob that!")
                     
                     #symbol = message_text.split("$")
-                    send_message(sender_id, message_text)
-
-
+                    if "$" in message_text:
+                        send_message(sender_id, message_text)
+                    else:
+                        send_message(sender_id, "nope")
                     
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
