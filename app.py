@@ -60,14 +60,15 @@ def webhook():
                         send_message(sender_id, hardParse)
                         
                         theURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={}&interval=1min&apikey={}".format(hardParse, apiKey)
-                        
+               
                         response = urllib.urlopen(theURL)
-
                         data = json.loads(response.read())
                         
-                        send_message(sender_id, "roger that!")                     
+                        #send_message(sender_id, "roger that!")                     
                         #send_message(sender_id, data)
-
+                       
+                        rightNow = "{}:00".format(now.strftime("%Y-%m-%d %H:%M"))
+                        send_message(sender_id, rightNow)
                         
                         #symbolIndex = line.find('symbol=')
                         #symbolURL = keyURL[:symbolIndex] + hardParse + keyURL[symbolIndex:]
