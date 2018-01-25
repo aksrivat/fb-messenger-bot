@@ -61,15 +61,15 @@ def webhook():
                         
                         theURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={}&interval=1min&apikey={}".format(hardParse, apiKey)
                
-                        response = urllib.urlopen(theURL)
-                        data = json.loads(response.read())
+                        #response = urllib.urlopen(theURL)
+                        #data = json.loads(response.read())
                         
                         #send_message(sender_id, "roger that!")                     
                         #send_message(sender_id, data)
                        
-                        now = datetime.datetime.now()
-                        currentTime = now.strftime("%Y-%m-%d %H:%M")
-                        rightNow = "{}:00".format(currentTime)
+                        #now = datetime.datetime.now()
+                        #currentTime = now.strftime("%Y-%m-%d %H:%M")
+                        #rightNow = "{}:00".format(currentTime)
                         #send_message(sender_id, rightNow)
                         send_message(sender_id, "date time is bad")                     
 
