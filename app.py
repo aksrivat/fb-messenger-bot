@@ -44,11 +44,11 @@ def webhook():
                     #send_message(sender_id, "bob that!")
                     
                     #apiKey = 'S1AKS2D2LNU9PY5L'
-                    #noKeyURL = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=&interval=1min&apikey='
+                    noKeyURL = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=&interval=1min&apikey='
                     #apiIndex = line.find('apikey=')
                     #keyURL = noKeyURL[:apiIndex] + apiKey + noKeyURL[apiIndex:]
                     # place the symbol after symbol= and the apikey after apikey=
-                    #send_message(sender_id, keyURL)
+                    send_message(sender_id, noKeyURL)
 
                     
                     #symbol = message_text.split("$")
