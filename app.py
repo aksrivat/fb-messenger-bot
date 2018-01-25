@@ -6,6 +6,8 @@ from datetime import datetime
 import requests
 from flask import Flask, request
 
+import urllib
+
 app = Flask(__name__)
 
 
@@ -40,15 +42,15 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    #send_message(sender_id, "roger that!")
+                    send_message(sender_id, "roger that!")
                     #send_message(sender_id, "bob that!")
                     
                     apiKey = 'S1AKS2D2LNU9PY5L'
-                    noKeyURL = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=&interval=1min&apikey='
+                    #noKeyURL = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=&interval=1min&apikey='
                     #apiIndex = line.find('apikey=')
                     #keyURL = noKeyURL[:apiIndex] + apiKey + noKeyURL[apiIndex:]
                     # place the symbol after symbol= and the apikey after apikey=
-                    send_message(sender_id, noKeyURL)
+                    #send_message(sender_id, noKeyURL)
 
                     
                     #symbol = message_text.split("$")
@@ -58,7 +60,12 @@ def webhook():
                         send_message(sender_id, hardParse)
                         
                         theURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={}&interval=1min&apikey={}".format(hardParse, apiKey)
-                        send_message(sender_id, theURL)
+                        #send_message(sender_id, theURL)
+
+                        url = urlopen(theURL).read()
+                        result = json.loads(url)
+                        
+                        send_message(sender_id, result)
 
                         
                         #symbolIndex = line.find('symbol=')
