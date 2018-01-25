@@ -43,8 +43,8 @@ def webhook():
                     #send_message(sender_id, "roger that!")
                     #send_message(sender_id, "bob that!")
                     
-                    symbol = message_text.split("$")
-                    send_message(sender_id, symbol)
+                    #symbol = message_text.split("$")
+                    send_message(sender_id, message_text)
 
 
                     
