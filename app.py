@@ -3,7 +3,7 @@ import sys
 import json
 from datetime import datetime
 
-from tzlocal import get_localzone
+#from tzlocal import get_localzone
 
 import requests
 from flask import Flask, request
@@ -72,9 +72,9 @@ def webhook():
                         #now = datetime.datetime.now()
                         #currentTime = now.strftime("%Y-%m-%d %H:%M")
                         #rightNow = "{}:00".format(currentTime)
-                        tz = get_localzone()
+                        #tz = get_localzone()
                         
-                        send_message(sender_id, str(datetime.now(tz)))
+                        send_message(sender_id, str(datetime.now()))
                         send_message(sender_id, str(datetime.today()))
 
                         #send_message(sender_id, "date time is bad")                     
