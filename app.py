@@ -73,8 +73,13 @@ def webhook():
                         #currentTime = now.strftime("%Y-%m-%d %H:%M")
                         #rightNow = "{}:00".format(currentTime)
                         #tz = get_localzone()
+                       
+                        now = datetime.now()
                         
-                        send_message(sender_id, str(datetime.now()))
+                        send_message(sender_id, str(now))
+                        send_message(sender_id, str(now.hour))
+                        send_message(sender_id, str(now.minute))
+
                         send_message(sender_id, str(datetime.today()))
 
                         #send_message(sender_id, "date time is bad")                     
