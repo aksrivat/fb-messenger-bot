@@ -209,13 +209,13 @@ def webhook():
                         send_message(sender_id, "Real Time Performance: ")
                         send_message(sender_id, completeDate)
                         smallDict = dataDict["Rank A: Real-Time Performance"]
-                        for key in sorted(smallDict.keys()):
+                        for key in smallDict.keys():
                             send_message(sender_id, ("{} {}".format(key, smallDict[key])))
                         
                         send_message(sender_id, "Year to Date Performance: ")
                         send_message(sender_id, completeDate)
                         smallDict = dataDict["Rank F: Year-to-Date (YTD) Performance"]
-                        for key in sorted(smallDict.keys()):
+                        for key in smallDict.keys():
                             send_message(sender_id, ("{} {}".format(key, smallDict[key])))
                     
                     else:
