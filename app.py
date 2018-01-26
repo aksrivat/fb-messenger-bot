@@ -87,15 +87,15 @@ def webhook():
                         
                         send_message(sender_id, str(type(hour)))
                     
-                        if 00 <= hour and hour > 05 :
+                        if 0 <= hour and hour < 5 :
                             hour = 24 + hour - 5
                             day = day - 1
                         else:
                             hour = hour - 5
                     
                         completeDate = "{}-{}-{}".format(year, month, day)
-                        #completeTime = "{}:{}:00".format(hour, minute)
-                        #timeStamp = "{} {}".format(completeDate, completeTime)
+                        completeTime = "{}:{}:00".format(hour, minute)
+                        timeStamp = "{} {}".format(completeDate, completeTime)
                         
                         #currentTime = now.strftime("%Y-%m-%d %H:%M")
                         #rightNow = "{}:00".format(currentTime)
@@ -103,8 +103,8 @@ def webhook():
                         
                         send_message(sender_id, str(now))
                         send_message(sender_id, completeDate)
-                        #send_message(sender_id, completeTime)
-                        #send_message(sender_id, timeStamp)
+                        send_message(sender_id, completeTime)
+                        send_message(sender_id, timeStamp)
 
                         #send_message(sender_id, str(now.hour))
                         #send_message(sender_id, str(now.minute))
