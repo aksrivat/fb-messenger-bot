@@ -65,9 +65,9 @@ def webhook():
                         
                     #symbol = message_text.split("$")
                     if "$" in message_text:
-                        send_message(sender_id, message_text)
+                        #send_message(sender_id, message_text)
                         hardParse = message_text[1:]
-                        send_message(sender_id, hardParse)
+                        #send_message(sender_id, hardParse)
                         
                         theURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={}&interval=1min&apikey={}".format(hardParse, apiKey)
                
@@ -85,7 +85,7 @@ def webhook():
                         month = now.month
                         day = now.day
                         
-                        send_message(sender_id, str(type(hour)))
+                        #send_message(sender_id, str(type(hour)))
                     
                         if 0 <= hour and hour < 5 :
                             hour = 24 + hour - 5
@@ -101,15 +101,16 @@ def webhook():
                         #rightNow = "{}:00".format(currentTime)
                         #tz = get_localzone()
                         
-                        send_message(sender_id, str(now))
-                        send_message(sender_id, completeDate)
-                        send_message(sender_id, completeTime)
+                        send_message(sender_id, "EST Time: ")
+                        #send_message(sender_id, str(now))
+                        #send_message(sender_id, completeDate)
+                        #send_message(sender_id, completeTime)
                         send_message(sender_id, timeStamp)
 
                         #send_message(sender_id, str(now.hour))
                         #send_message(sender_id, str(now.minute))
 
-                        send_message(sender_id, str(datetime.today()))
+                        #send_message(sender_id, str(datetime.today()))
 
                         #send_message(sender_id, "date time is bad")                     
 
@@ -120,15 +121,17 @@ def webhook():
                         #send_message(sender_id, symbolURL)
                         
                         completeDate = sorted(dataDict["Time Series (1min)"].keys())[-1]
+                        send_message(sender_id, "Last Trade Info: ")
+                        send_message(sender_id, completeDate)
                         smallDict = dataDict["Time Series (1min)"][completeDate]
                         for key in sorted(smallDict.keys()):
                             send_message(sender_id, ("{} {}".format(key, smallDict[key])))
 
                         
                     elif "!" in message_text:
-                        send_message(sender_id, message_text)
+                        #send_message(sender_id, message_text)
                         hardParse = message_text[1:]
-                        send_message(sender_id, hardParse)
+                        #send_message(sender_id, hardParse)
                         
                         theURL = "https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol={}&market=EUR&apikey={}".format(hardParse, apiKey)
                
@@ -139,12 +142,15 @@ def webhook():
                         #send_message(sender_id, data)
                        
                         now = datetime.now()
+                        
+                        hour = now.hour
+                        minute = now.minute
                         year = now.year
                         month = now.month
                         day = now.day
-                        hour = now.hour
-                        minute = now.minute
-                                            
+                        
+                        #send_message(sender_id, str(type(hour)))
+                    
                         if 0 <= hour and hour < 5 :
                             hour = 24 + hour - 5
                             day = day - 1
@@ -152,6 +158,18 @@ def webhook():
                             hour = hour - 5
                     
                         completeDate = "{}-{}-{}".format(year, month, day)
+                        completeTime = "{}:{}:00".format(hour, minute)
+                        timeStamp = "{} {}".format(completeDate, completeTime)
+                        
+                        #currentTime = now.strftime("%Y-%m-%d %H:%M")
+                        #rightNow = "{}:00".format(currentTime)
+                        #tz = get_localzone()
+                        
+                        send_message(sender_id, "EST Time: ")
+                        #send_message(sender_id, str(now))
+                        #send_message(sender_id, completeDate)
+                        #send_message(sender_id, completeTime)
+                        send_message(sender_id, timeStamp)
                         
                         send_message(sender_id, theURL)
                         send_message(sender_id, completeDate)
