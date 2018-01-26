@@ -171,7 +171,7 @@ def webhook():
                         #send_message(sender_id, completeTime)
                         send_message(sender_id, timeStamp)
                         
-                        send_message(sender_id, theURL)
+                        #send_message(sender_id, theURL)
                         send_message(sender_id, completeDate)
                         
                         completeDate = sorted(dataDict["Time Series (Digital Currency Daily)"].keys())[-1]
