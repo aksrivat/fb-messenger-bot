@@ -85,7 +85,14 @@ def webhook():
                         month = now.month
                         day = now.day
                     
-                        completeDate = "{}-{}-{}".format(year, month, (day-1))
+                        if hour == 0:
+                            hour = 24 - 5
+                            day = day - 1
+                        else:
+                            hour = hour - 5
+                    
+                        completeDate = "{}-{}-{}".format(year, month, day)
+                        completeTIme = "{}:{}:00".format(hour, minute)
                         
                         #currentTime = now.strftime("%Y-%m-%d %H:%M")
                         #rightNow = "{}:00".format(currentTime)
