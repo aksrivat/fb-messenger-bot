@@ -119,6 +119,36 @@ def webhook():
                         #symbolURL = keyURL[:symbolIndex] + hardParse + keyURL[symbolIndex:]
                         #send_message(sender_id, symbolURL)
 
+                        
+                    else if "!" in message_text:
+                        send_message(sender_id, message_text)
+                        hardParse = message_text[1:]
+                        send_message(sender_id, hardParse)
+                        
+                        theURL = "https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol={}&market=USD&apikey={}".format(hardParse, apiKey)
+               
+                        #response = urllib.urlopen(theURL)
+                        #data = json.loads(response.read())
+                        
+                        #send_message(sender_id, "roger that!")                     
+                        #send_message(sender_id, data)
+                       
+                        now = datetime.now()
+                        year = now.year
+                        month = now.month
+                        day = now.day
+                                            
+                        if 0 <= hour and hour < 5 :
+                            hour = 24 + hour - 5
+                            day = day - 1
+                        else:
+                            hour = hour - 5
+                    
+                        completeDate = "{}-{}-{}".format(year, month, day)
+                        
+                        send_message(sender_id, theURL)
+                        send_message(sender_id, completeDate)
+                        
                     else:
                         send_message(sender_id, "nope")
                     
