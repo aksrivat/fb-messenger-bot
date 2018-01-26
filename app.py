@@ -173,7 +173,51 @@ def webhook():
                         smallDict = dataDict["Time Series (Digital Currency Daily)"][completeDate]
                         for key in sorted(smallDict.keys()):
                             send_message(sender_id, ("{} {}".format(key, smallDict[key])))
+                    
+                    elif "S&P" in message_text or "s&p" in message_text:
                         
+                        theURL = "https://www.alphavantage.co/query?function=SECTOR&apikey={}".format(apiKey)
+                        response = urllib.urlopen(theURL)
+                        dataDict = json.loads(response.read())
+                       
+                        now = datetime.now()
+                        
+                        hour = now.hour
+                        minute = now.minute
+                        year = now.year
+                        month = now.month
+                        day = now.day
+                        
+                        #send_message(sender_id, str(type(hour)))
+                    
+                        if 0 <= hour and hour < 5 :
+                            hour = 24 + hour - 5
+                            day = day - 1
+                        else:
+                            hour = hour - 5
+                    
+                        completedDate = "{}-{}-{}".format(year, month, day)
+                        completedTime = "{}:{}:00".format(hour, minute)
+                        timeStamp = "{} {}".format(completedDate, completedTime)
+                        
+                        send_message(sender_id, "S and P Performance By Sector")
+
+                        send_message(sender_id, "EST Time: ")
+                        send_message(sender_id, timeStamp)
+                        
+                        #completeDate = sorted(dataDict["Time Series (1min)"].keys())[-1]
+                        send_message(sender_id, "Real Time Performance: ")
+                        send_message(sender_id, completeDate)
+                        smallDict = dataDict["Rank A: Real-Time Performance"]
+                        for key in sorted(smallDict.keys()):
+                            send_message(sender_id, ("{} {}".format(key, smallDict[key])))
+                        
+                        send_message(sender_id, "Year to Date Performance: ")
+                        send_message(sender_id, completeDate)
+                        smallDict = dataDict["Rank F: Year-to-Date (YTD) Performance"]
+                        for key in sorted(smallDict.keys()):
+                            send_message(sender_id, ("{} {}".format(key, smallDict[key])))
+                    
                     else:
                         send_message(sender_id, "nope")
                     
