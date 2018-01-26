@@ -137,6 +137,8 @@ def webhook():
                         year = now.year
                         month = now.month
                         day = now.day
+                        hour = now.hour
+                        minute = now.minute
                                             
                         if 0 <= hour and hour < 5 :
                             hour = 24 + hour - 5
