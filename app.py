@@ -93,9 +93,9 @@ def webhook():
                         else:
                             hour = hour - 5
                     
-                        completeDate = "{}-{}-{}".format(year, month, day)
-                        completeTime = "{}:{}:00".format(hour, minute)
-                        timeStamp = "{} {}".format(completeDate, completeTime)
+                        completedDate = "{}-{}-{}".format(year, month, day)
+                        completedTime = "{}:{}:00".format(hour, minute)
+                        timeStamp = "{} {}".format(completedDate, completedTime)
                         
                         #currentTime = now.strftime("%Y-%m-%d %H:%M")
                         #rightNow = "{}:00".format(currentTime)
@@ -115,12 +115,12 @@ def webhook():
                         #symbolURL = keyURL[:symbolIndex] + hardParse + keyURL[symbolIndex:]
                         #send_message(sender_id, symbolURL)
                         
-                        #completeDate = sorted(dataDict["Time Series (1min)"].keys())[-1]
-                        #send_message(sender_id, "Last Trade Info: ")
-                        #send_message(sender_id, completeDate)
-                        #smallDict = dataDict["Time Series (1min)"][completeDate]
-                        #for key in sorted(smallDict.keys()):
-                            #send_message(sender_id, ("{} {}".format(key, smallDict[key])))
+                        completeDate = sorted(dataDict["Time Series (1min)"].keys())[-1]
+                        send_message(sender_id, "Last Trade Info: ")
+                        send_message(sender_id, completeDate)
+                        smallDict = dataDict["Time Series (1min)"][completeDate]
+                        for key in sorted(smallDict.keys()):
+                            send_message(sender_id, ("{} {}".format(key, smallDict[key])))
 
                         
                     elif "!" in message_text:
@@ -152,9 +152,9 @@ def webhook():
                         else:
                             hour = hour - 5
                     
-                        completeDate = "{}-{}-{}".format(year, month, day)
-                        completeTime = "{}:{}:00".format(hour, minute)
-                        timeStamp = "{} {}".format(completeDate, completeTime)
+                        completedDate = "{}-{}-{}".format(year, month, day)
+                        completedTime = "{}:{}:00".format(hour, minute)
+                        timeStamp = "{} {}".format(completedDate, completedTime)
                         
                         #currentTime = now.strftime("%Y-%m-%d %H:%M")
                         #rightNow = "{}:00".format(currentTime)
@@ -167,12 +167,12 @@ def webhook():
                         send_message(sender_id, timeStamp)
                         
                         #send_message(sender_id, theURL)
-                        send_message(sender_id, completeDate)
+                        send_message(sender_id, completedDate)
                         
-                        #completeDate = sorted(dataDict["Time Series (Digital Currency Daily)"].keys())[-1]
-                        #smallDict = dataDict["Time Series (Digital Currency Daily)"][completeDate]
-                        #for key in sorted(smallDict.keys()):
-                            #send_message(sender_id, ("{} {}".format(key, smallDict[key])))
+                        completeDate = sorted(dataDict["Time Series (Digital Currency Daily)"].keys())[-1]
+                        smallDict = dataDict["Time Series (Digital Currency Daily)"][completeDate]
+                        for key in sorted(smallDict.keys()):
+                            send_message(sender_id, ("{} {}".format(key, smallDict[key])))
                         
                     else:
                         send_message(sender_id, "nope")
