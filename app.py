@@ -54,14 +54,14 @@ def webhook():
                     # place the symbol after symbol= and the apikey after apikey=
                     #send_message(sender_id, noKeyURL)
 
-                        now = datetime.now()
-                        hour = now.hour
-                        minute = now.minute
-                        year = now.year
-                        month = now.month
-                        day = now.day
+                        #now = datetime.now()
+                        #hour = now.hour
+                        #minute = now.minute
+                        #year = now.year
+                        #month = now.month
+                        #day = now.day
                     
-                        completeDate = "{}-{}-{}".format(year, month, day)
+                        #completeDate = "{}-{}-{}".format(year, month, day)
                         
                     #symbol = message_text.split("$")
                     if "$" in message_text:
@@ -83,7 +83,7 @@ def webhook():
                         #tz = get_localzone()
                         
                         send_message(sender_id, str(now))
-                        send_message(sender_id, completeDate)
+                        #send_message(sender_id, completeDate)
 
                         #send_message(sender_id, str(now.hour))
                         #send_message(sender_id, str(now.minute))
