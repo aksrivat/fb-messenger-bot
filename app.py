@@ -115,12 +115,12 @@ def webhook():
                         #symbolURL = keyURL[:symbolIndex] + hardParse + keyURL[symbolIndex:]
                         #send_message(sender_id, symbolURL)
                         
-                        completeDate = sorted(dataDict["Time Series (1min)"].keys())[-1]
-                        send_message(sender_id, "Last Trade Info: ")
-                        send_message(sender_id, completeDate)
-                        smallDict = dataDict["Time Series (1min)"][completeDate]
-                        for key in sorted(smallDict.keys()):
-                            send_message(sender_id, ("{} {}".format(key, smallDict[key])))
+                        #completeDate = sorted(dataDict["Time Series (1min)"].keys())[-1]
+                        #send_message(sender_id, "Last Trade Info: ")
+                        #send_message(sender_id, completeDate)
+                        #smallDict = dataDict["Time Series (1min)"][completeDate]
+                        #for key in sorted(smallDict.keys()):
+                            #send_message(sender_id, ("{} {}".format(key, smallDict[key])))
 
                         
                     elif "!" in message_text:
@@ -169,10 +169,10 @@ def webhook():
                         #send_message(sender_id, theURL)
                         send_message(sender_id, completeDate)
                         
-                        completeDate = sorted(dataDict["Time Series (Digital Currency Daily)"].keys())[-1]
-                        smallDict = dataDict["Time Series (Digital Currency Daily)"][completeDate]
-                        for key in sorted(smallDict.keys()):
-                            send_message(sender_id, ("{} {}".format(key, smallDict[key])))
+                        #completeDate = sorted(dataDict["Time Series (Digital Currency Daily)"].keys())[-1]
+                        #smallDict = dataDict["Time Series (Digital Currency Daily)"][completeDate]
+                        #for key in sorted(smallDict.keys()):
+                            #send_message(sender_id, ("{} {}".format(key, smallDict[key])))
                         
                     else:
                         send_message(sender_id, "nope")
