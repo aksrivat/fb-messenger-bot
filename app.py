@@ -105,18 +105,12 @@ def webhook():
                         #send_message(sender_id, str(now))
                         #send_message(sender_id, completeDate)
                         #send_message(sender_id, completeTime)
-                        
                         send_message(sender_id, timeStamp)
 
                         #send_message(sender_id, str(now.hour))
                         #send_message(sender_id, str(now.minute))
 
-                        #send_message(sender_id, str(datetime.today()))
-
-                        #send_message(sender_id, "date time is bad")                     
-
-                        
-                        
+                        #send_message(sender_id, str(datetime.today()))  
                         #symbolIndex = line.find('symbol=')
                         #symbolURL = keyURL[:symbolIndex] + hardParse + keyURL[symbolIndex:]
                         #send_message(sender_id, symbolURL)
