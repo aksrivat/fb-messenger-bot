@@ -125,7 +125,7 @@ def webhook():
                         hardParse = message_text[1:]
                         send_message(sender_id, hardParse)
                         
-                        theURL = "https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol={}&market=USD&apikey={}".format(hardParse, apiKey)
+                        theURL = "https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol={}&market=EUR&apikey={}".format(hardParse, apiKey)
                
                         #response = urllib.urlopen(theURL)
                         #data = json.loads(response.read())
