@@ -78,6 +78,15 @@ def webhook():
                         #send_message(sender_id, data)
                        
                         now = datetime.now()
+                        
+                        hour = now.hour
+                        minute = now.minute
+                        year = now.year
+                        month = now.month
+                        day = now.day
+                    
+                        completeDate = "{}-{}-{}".format(year, month, day)
+                        
                         #currentTime = now.strftime("%Y-%m-%d %H:%M")
                         #rightNow = "{}:00".format(currentTime)
                         #tz = get_localzone()
