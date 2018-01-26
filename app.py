@@ -72,7 +72,7 @@ def webhook():
                         theURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={}&interval=1min&apikey={}".format(hardParse, apiKey)
                
                         response = urllib.urlopen(theURL)
-                        data = json.loads(response.read())
+                        dataDict = json.loads(response.read())
                         
                         #send_message(sender_id, "roger that!")                     
                         #send_message(sender_id, data)
@@ -128,7 +128,7 @@ def webhook():
                         theURL = "https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol={}&market=EUR&apikey={}".format(hardParse, apiKey)
                
                         response = urllib.urlopen(theURL)
-                        data = json.loads(response.read())
+                        dataDict = json.loads(response.read())
                         
                         #send_message(sender_id, "roger that!")                     
                         #send_message(sender_id, data)
@@ -151,7 +151,7 @@ def webhook():
                         send_message(sender_id, theURL)
                         send_message(sender_id, completeDate)
                         
-                        smallDict = data["Time Series (Digital Currency Daily)"][completeDate]
+                        smallDict = dataDict["Time Series (Digital Currency Daily)"][completeDate]
                         
                         for key in smallDict:
                             send_message(sender_id, "{} {}".format(key, smallDict[key]))
