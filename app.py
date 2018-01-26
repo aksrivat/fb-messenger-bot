@@ -92,7 +92,7 @@ def webhook():
                         #tz = get_localzone()
                         
                         send_message(sender_id, str(now))
-                        #send_message(sender_id, completeDate)
+                        send_message(sender_id, completeDate)
 
                         #send_message(sender_id, str(now.hour))
                         #send_message(sender_id, str(now.minute))
