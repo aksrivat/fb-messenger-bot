@@ -84,6 +84,8 @@ def webhook():
                         year = now.year
                         month = now.month
                         day = now.day
+                        
+                        send_message(sender_id, str(type(hour)))
                     
                         if 00 <= hour and hour > 05 :
                             hour = 24 + hour - 5
