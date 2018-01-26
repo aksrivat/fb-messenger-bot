@@ -121,7 +121,7 @@ def webhook():
                         
                         completeDate = sorted(dataDict["Time Series (1min)"].keys())[-1]
                         smallDict = dataDict["Time Series (1min)"][completeDate]
-                        for key in smallDict:
+                        for key in sorted(smallDict.keys()):
                             send_message(sender_id, ("{} {}".format(key, smallDict[key])))
 
                         
@@ -158,7 +158,7 @@ def webhook():
                         
                         completeDate = sorted(dataDict["Time Series (Digital Currency Daily)"].keys())[-1]
                         smallDict = dataDict["Time Series (Digital Currency Daily)"][completeDate]
-                        for key in smallDict:
+                        for key in sorted(smallDict.keys()):
                             send_message(sender_id, ("{} {}".format(key, smallDict[key])))
                         
                     else:
