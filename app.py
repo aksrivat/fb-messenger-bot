@@ -92,7 +92,7 @@ def webhook():
                             hour = hour - 5
                     
                         completeDate = "{}-{}-{}".format(year, month, day)
-                        completeTime = "{}:{}:00".format(hour, minute)
+                        #completeTime = "{}:{}:00".format(hour, minute)
                         #timeStamp = "{} {}".format(completeDate, completeTime)
                         
                         #currentTime = now.strftime("%Y-%m-%d %H:%M")
@@ -101,7 +101,7 @@ def webhook():
                         
                         send_message(sender_id, str(now))
                         send_message(sender_id, completeDate)
-                        send_message(sender_id, completeTime)
+                        #send_message(sender_id, completeTime)
                         #send_message(sender_id, timeStamp)
 
                         #send_message(sender_id, str(now.hour))
