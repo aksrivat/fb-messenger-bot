@@ -54,7 +54,7 @@ def webhook():
                     # place the symbol after symbol= and the apikey after apikey=
                     #send_message(sender_id, noKeyURL)
 
-                        #now = datetime.now()
+                        now = datetime.now()
                         #hour = now.hour
                         #minute = now.minute
                         #year = now.year
