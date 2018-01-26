@@ -154,7 +154,7 @@ def webhook():
                         smallDict = data["Time Series (Digital Currency Daily)"][completeDate]
                         
                         for key in smallDict:
-                            send_message(sender_id, "{} {}".format(key, smallDict(key)))
+                            send_message(sender_id, "{} {}".format(key, smallDict[key]))
                         
                     else:
                         send_message(sender_id, "nope")
