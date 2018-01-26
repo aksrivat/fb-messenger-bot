@@ -120,7 +120,7 @@ def webhook():
                         #send_message(sender_id, symbolURL)
 
                         
-                    else if "!" in message_text:
+                    elif "!" in message_text:
                         send_message(sender_id, message_text)
                         hardParse = message_text[1:]
                         send_message(sender_id, hardParse)
