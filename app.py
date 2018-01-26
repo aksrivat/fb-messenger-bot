@@ -77,7 +77,7 @@ def webhook():
                         #send_message(sender_id, "roger that!")                     
                         #send_message(sender_id, data)
                        
-                        now = datetime.datetime.now()
+                        now = datetime.now()
                         #currentTime = now.strftime("%Y-%m-%d %H:%M")
                         #rightNow = "{}:00".format(currentTime)
                         #tz = get_localzone()
